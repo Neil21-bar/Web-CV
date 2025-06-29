@@ -4,11 +4,20 @@ import numpy as np
 from PIL import Image
 import os
 import uuid
+import gdown
 
 app = Flask(__name__)
 
+# === Unduh model dari Google Drive jika belum ada ===
+model_path = 'model/fine_tuned_model.h5'
+if not os.path.exists(model_path):
+    os.makedirs('model', exist_ok=True)
+    drive_file_id = '1-5zytuGVuCB51ikCA3DCuT8KpGqX9HWZ'
+    url = f'https://drive.google.com/uc?id={drive_file_id}'
+    gdown.download(url, model_path, quiet=False)
+
 # Load model
-model = load_model('model/fine_tuned_model.h5')
+model = load_model(model_path)
 
 # Daftar label
 classes = ['Lily', 'Lotus', 'Orchid', 'Sunflower', 'Tulip']
@@ -24,9 +33,9 @@ explanations = {
 
 # Preprocessing gambar
 def preprocess_image(image):
-    image = image.resize((224, 224))          # Ukuran input model
-    image = np.array(image) / 255.0           # Normalisasi
-    image = image.reshape(1, 224, 224, 3)      # Tambah dimensi batch, ukuran benar
+    image = image.resize((224, 224))
+    image = np.array(image) / 255.0
+    image = image.reshape(1, 224, 224, 3)
     return image
 
 @app.route('/', methods=['GET', 'POST'])
@@ -39,26 +48,16 @@ def index():
     if request.method == 'POST':
         file = request.files['image']
         if file:
-            # Simpan gambar ke folder static/uploads dengan nama unik
             upload_folder = os.path.join('static', 'uploads')
             os.makedirs(upload_folder, exist_ok=True)
             filename = str(uuid.uuid4()) + os.path.splitext(file.filename)[1]
             filepath = os.path.join(upload_folder, filename)
             file.save(filepath)
 
-            # Proses gambar untuk prediksi
             img = Image.open(filepath).convert('RGB')
             processed_img = preprocess_image(img)
             pred = model.predict(processed_img)[0]
             predicted_class = classes[np.argmax(pred)]
             prediction = predicted_class
             confidence = round(np.max(pred) * 100, 2)
-            explanation = explanations.get(predicted_class, '')
-
-            # URL gambar untuk ditampilkan di template
-            image_url = url_for('static', filename='uploads/' + filename)
-
-    return render_template('index.html', prediction=prediction, confidence=confidence, explanation=explanation, image_url=image_url)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+            explanation = expl
