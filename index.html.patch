@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Klasifikasi Gambar Bunga</title>
+</head>
+<body>
+    <h1>Klasifikasi Bunga (Sunflower, Lily, Orchid, Lotus, Tulip)</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Pilih Gambar Bunga:</label><br><br>
+        <input type="file" name="image" accept="image/*" required><br><br>
+        <button type="submit">Prediksi</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Hasil Prediksi: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Klasifikasi Gambar Bunga</title>
+    <style>
+        /* Gaya dasar untuk body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Kontainer utama */
+        .container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Judul */
+        h1 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #2c3e50;
+        }
+
+        /* Label */
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #34495e;
+        }
+
+        /* Input file */
+        input[type="file"] {
+            margin-bottom: 20px;
+            padding: 8px;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        input[type="file"]:hover {
+            border-color: #2980b9;
+        }
+
+        /* Tombol prediksi */
+        button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #1c5980;
+        }
+
+        /* Hasil prediksi */
+        h2 {
+            margin-top: 30px;
+            color: #27ae60;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Klasifikasi Bunga (Sunflower, Lily, Orchid, Lotus, Tulip)</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="image">Pilih Gambar Bunga:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <button type="submit">Prediksi</button>
+        </form>
+
+        {% if prediction %}
+            <h2>Hasil Prediksi: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
