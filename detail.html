@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detail Bunga - {{ flower_name }}</title>
+</head>
+<body>
+    <h1>Detail Bunga: {{ flower_name }}</h1>
+    <p><strong>Habitat:</strong> {{ details.habitat }}</p>
+    <p><strong>Usia Bunga:</strong> {{ details.age }}</p>
+    <p><strong>Daerah Tumbuh:</strong> {{ details.regions }}</p>
+    <a href="{{ url_for('index') }}">Kembali ke Halaman Utama</a>
+</body>
+</html>
