@@ -27,7 +27,6 @@ A simple deep learning-powered web app built with **Flask** and **TensorFlow** t
 
 ## 🧩 Project Structure
 
-```bash
 flower-classifier/
 ├── app.py                  # Flask application
 ├── templates/
@@ -35,14 +34,7 @@ flower-classifier/
 ├── static/
 │   └── uploads/            # Uploaded images
 ├── model/
-│   └── fine_tuned_model.h5 # (auto-downloaded)
+│   └── fine_tuned_model.h5 # (auto-downloaded if missing)
 ├── requirements.txt
 └── README.md
 
-##🛠️ Installation
-git clone https://github.com/yourusername/flower-classifier.git
-cd flower-classifier
-
-pip install -r requirements.txt
-
-python app.py
