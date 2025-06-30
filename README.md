@@ -2,7 +2,7 @@
 
 A simple deep learning-powered web app built with **Flask** and **TensorFlow** to classify flower types from images. Upload a picture of a flower and instantly get a prediction with a short explanation.
 
-![preview](static/logo.png)
+
 
 ---
 
