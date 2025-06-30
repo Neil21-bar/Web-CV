@@ -101,6 +101,11 @@
             {% if explanation %}
                 <p style="margin-top: 20px; font-size: 1rem; color: #555;">{{ explanation }}</p>
             {% endif %}
+            {% if detail_url %}
+                <p style="margin-top: 20px;">
+                    <a href="{{ detail_url }}" style="color: #2980b9; font-weight: 600; text-decoration: none;">Lihat Detail Bunga</a>
+                </p>
+            {% endif %}
         {% endif %}
     </div>
 </body>
