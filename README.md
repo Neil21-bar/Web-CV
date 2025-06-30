@@ -1,12 +1,48 @@
-# Web-CV
-Web untuk mendeteksi bunga
-# Klasifikasi Bunga - Flask + TensorFlow
+# BLOM
+# 🌸 Flower Classifier Web App
 
-Aplikasi web sederhana untuk mengklasifikasikan jenis bunga (Lily, Lotus, Orchid, Sunflower, Tulip) menggunakan model deep learning.
+A simple deep learning-powered web app built with **Flask** and **TensorFlow** to classify flower types from images. Upload a picture of a flower and instantly get a prediction with a short explanation.
 
-## Cara Menjalankan
+![preview](static/logo.png)
 
-1. Install dependency:
-2. Jalankan server
-3. Buka di browser:
-[http://127.0.0.1:5000](http://127.0.0.1:5000)
+---
+
+## ✨ Features
+
+- 🔍 Classifies flowers into:
+  - Lily
+  - Lotus
+  - Orchid
+  - Sunflower
+  - Tulip
+- 🧠 Built with a fine-tuned CNN model (`.h5`)
+- 📸 Upload your own flower image
+- 📜 Gives prediction + confidence + explanation
+- ☁️ Auto-downloads model from Google Drive if missing
+
+---
+
+
+---
+
+## 🧩 Project Structure
+
+```bash
+flower-classifier/
+├── app.py                  # Flask application
+├── templates/
+│   └── index.html          # Main UI
+├── static/
+│   └── uploads/            # Uploaded images
+├── model/
+│   └── fine_tuned_model.h5 # (auto-downloaded)
+├── requirements.txt
+└── README.md
+
+##🛠️ Installation
+git clone https://github.com/yourusername/flower-classifier.git
+cd flower-classifier
+
+pip install -r requirements.txt
+
+python app.py
